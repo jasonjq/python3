@@ -1,0 +1,419 @@
+接下来的3天的课程都是来讲解数据类型的知识点，常见的数据类型：
+
+int，整数类型（整形）
+bool，布尔类型
+str，字符串类型
+list，列表类型
+tuple，元组类型
+dict，字典类型
+set，集合类型
+float，浮点类型（浮点型）
+每种数据类型都有自己的特点及应用场景，以后的开发中需要根据实际的开发情况选择合适的数据类型。
+
+
+
+每种数据类型的讲解，会按照以下4个维度来进行：
+
+定义
+独有功能
+公共功能
+类型转换
+其他
+今日课程目标：掌握整形、布尔类型、字符串的必备知识。
+
+今日课程概要：
+
+整形
+布尔类型
+字符串类型
+1.整型
+整型其实就是十进制整数的统称，比如：1、68、999都属于整型。他一般用于表示 年龄、序号等。
+
+1.1 定义
+number = 10
+age = 99
+1.2 独有功能
+无
+
+v1 = 5
+print(bin(v1))  # 0b101
+# 调用v1（int）的独有功能，获取v1的二进制有多少个位组成。
+result1 = v1.bit_length()
+print(result1)  # 3
+
+v2 = 10
+print(bin(10))  # 0b1010
+# 调用v2（int）的独有功能，获取v2的二进制有多少个位组成。
+result2 = v2.bit_length()
+print(result2)  # 4
+1.3 公共功能
+加减乘除
+
+v1 = 4
+v2 = 8
+v3 = v1 + v2
+1.4 转换
+在项目开发和面试题中经常会出现一些 "字符串" 和 布尔值 转换为 整型的情况。
+
+# 布尔值转整型
+n1 = int(True)  # True转换为整数 1
+n2 = int(False) # False转换为整数 0
+
+# 字符串转整型
+v1 = int("186",base=10) # 把字符串看成十进制的值，然后再转换为 十进制整数，结果：v1 = 186
+v2 = int("0b1001",base=2) # 把字符串看成二进制的值，然后再转换为 十进制整数，结果：v1 = 9 (0b表示二进制)
+v3 = int("0o144",base=8)  # 把字符串看成八进制的值，然后转换为 十进制整数，结果：v1 = 100 (0o表示八进制)
+v4 = int("0x59",base=16)  # 把字符串看成十六进制的值，然后转换为 十进制整数，结果：v1 = 89 （0x表示十六进制）
+
+# 浮点型（小数）
+v1 = int(8.7) # 8
+所以，如果以后别人给你一个按 二进制、八进制、十进制、十六进制 规则存储的字符串时，可以轻松的通过int转换为十进制的整数。
+
+1.5 其他
+1.5.1 长整型
+Python3：整型（无限制）
+Python2：整型、长整形
+在python2中跟整数相关的数据类型有两种：int(整型)、long（长整型），他们都是整数只不过能表示的值范围不同。
+
+
+
+int，可表示的范围：-9223372036854775808～9223372036854775807
+long，整数值超出int范围之后自动会转换为long类型（无限制）。
+在python3中去除了long只剩下：int（整型），并且 int 长度不在限制。
+
+1.5.2 地板除
+Py3：
+
+v1 = 9/2
+print(v1) # 4.5
+py2:
+
+v1 = 9/2
+print(v1) # 4
+from __future__ import division
+
+v1 = 9/2
+print(v1) # 4.5
+2. 布尔类型
+布尔值，其实就是 “真”、“假” 。
+
+2.1 定义
+data = False
+alex_is_sb = True
+2.2 独有功能
+无
+
+2.3 公共功能
+无
+
+v1 = True + True
+print(v1) # 2
+2.4 转换
+在以后的项目开发中，会经常使用其他类型转换为布尔值的情景，此处只要记住一个规律即可。
+
+整数0、空字符串、空列表、空元组、空字典转换为布尔值时均为False
+其他均为True
+# 练习题：查看一些变量为True还是False
+v1 = bool(0)
+v2 = bool(-10)
+v3 = bool(10)
+v4 = bool("武沛齐")
+v5 = bool("")
+v6 = bool(" ")
+v7 = bool([]) # [] 表示空列表
+v8 = bool([11，22，33]) # [11，22，33] 表示非空列表
+v9 = bool({}) # {} 表示空字典
+v10 = bool({"name":"武沛齐","age":18}) # {"name":"武沛齐","age":18} 表示非空字典
+2.5 其他
+2.5.1 做条件自动转换
+如果在 if 、while 条件后面写一个值当做条件时，他会默认转换为布尔类型，然后再做条件判断。
+
+if 0:
+	print("太六了")
+else:
+  print(999)
+
+if "武沛齐":
+	print("你好")
+
+if "alex":
+	print("你是傻逼？")
+else:
+	print("你是逗比？")
+while 1>9:
+  pass
+if 值:
+  pass
+
+while 值:
+  pass
+3.字符串类型
+字符串，我们平时会用他来表示文本信息。例如：姓名、地址、自我介绍等。
+
+3.1 定义
+v1 = "包治百病"
+v2 = '包治百病'
+v3 = "包'治百病"
+v4 = '包"治百病'
+v5 = """
+吵架都是我的错，
+因为大家打不过。
+"""
+# 三个引号，可以支持多行/换行表示一个字符串，其他的都只能在一行中表示一个字符串。
+3.2 独有功能（18/48）
+"xxxxx".功能(...)
+
+v1 = "xxxxx"
+v1.功能(...)
+判断字符串是否以 XX 开头？得到一个布尔值
+
+v1 = "叨逼叨的一天，烦死了"
+
+# True
+result = v1.startswith("叨逼叨的一天")
+
+print(result) # 值为True
+# 案例
+v1 = input("请输入住址：")
+
+if v1.startswith("北京市"):
+	print("北京人口")
+else:
+	print("非北京人口")
+判断字符串是否以 XX 结尾？得到一个布尔值
+
+v1 = "叨逼叨的一天，烦死了"
+
+result = v1.endswith("烦死了")
+
+print(result) # 值为True
+# 案例
+address = input("请输入地址：")
+
+if address.endswith('村'):
+	print("农业户口")
+else:
+	print("非农户口")
+判断字符串是否为十进制数？得到一个布尔值
+
+v1 = "1238871"
+result = v1.isdecimal()
+print(result) # True
+# 案例,两个数相加。
+
+v1 = input("请输入值：") # ”666“
+v2 = input("请输入值：") # ”999“
+if v1.isdecimal() and v2.isdecimal():
+	data = int(v1) + int(v2)
+	print(data)
+else:
+	print("请正确输入数字")
+v1 = "123"
+print(v1.isdecimal()) # True
+
+v2 = "①"
+print(v2.isdecimal()) # False
+
+v3 = "123"
+print(v3.isdigit()) # True
+
+v4 = "①"
+print(v4.isdigit()) # True
+去除字符串两边的 空格、换行符、制表符，得到一个新字符串
+
+data = input("请输入内容：") #武沛齐,武沛齐
+print(data)
+msg = " H e ll o啊，树哥 "
+data = msg.strip()
+print(data) # 将msg两边的空白去掉，得到"H e ll o啊，树哥"
+msg = " H e ll o啊，树哥 "
+data = msg.lstrip()
+print(data) # 将msg两边的空白去掉，得到"H e ll o啊，树哥 "
+msg = " H e ll o啊，树哥 "
+data = msg.rstrip()
+print(data) # 将msg两边的空白去掉，得到" H e ll o啊，树哥"
+补充：去除 空格、换行符、制表符。
+
+# 案例
+code = input("请输入4位验证码：") #  FB87
+data = code.strip()
+if data == "FB87":
+	print('验证码正确')
+else:
+	print("验证码错误")
+再补充：去除字符串两边指定的内容
+
+msg = "哥H e ll o啊，树哥"
+data = msg.strip("哥")
+print(data) # 将msg两边的空白去掉，得到"H e ll o啊，树"
+msg = "哥H e ll o啊，树哥"
+data = msg.lstrip("哥")
+print(data) # 将msg两边的空白去掉，得到"H e ll o啊，树哥"
+msg = "哥H e ll o啊，树哥"
+data = msg.rstrip("哥")
+print(data) # 将msg两边的空白去掉，得到"哥H e ll o啊，树"
+字符串变大写，得到一个新字符串
+
+msg = "my name is oliver queen"
+data = msg.upper()
+
+print(msg) # my name is oliver queen
+print(data) # 输出为：MY NAME IS OLIVER QUEEN
+# 案例
+code = input("请输入4位验证码：") #  FB88   fb88
+value = code.upper() #  FB88
+data = value.strip() # FB88
+
+if data == "FB87":
+	print('验证码正确')
+else:
+	print("验证码错误")
+
+# 注意事项
+"""
+code的值"fb88 "
+value的值"FB88 "
+data的值"FB88"
+"""
+字符串变小写，得到一个新字符串
+
+msg = "My Name Is Oliver Queen"
+data = msg.lower()
+
+print(data) # 输出为：my name is oliver queen
+# 案例
+code = input("请输入4位验证码：")
+value = code.strip().lower()
+if value == "fb87":
+	print('验证码正确')
+else:
+	print("验证码错误")
+字符串内容替换，得到一个新的字符串
+
+data = "你是个好人，但是好人不合适我"
+value = data.replace("好人","贱人")
+print(data)  # "你是个好人，但是好人不合适我"
+print(value) # "你是个贱人，但是贱人不合适我"
+# 案例
+video_file_name = "高清无码爱情动作片.mp4"
+
+new_file_name = video_file_name.replace("mp4","avi") # "高清无码爱情动作片.avi"
+
+final_file_name = new_file_name.replace("无码","步兵") # "高清步兵爱情动作片.avi"
+
+print(final_file_name)
+# 案例
+video_file_name = "高清无码爱情动作片.mp4"
+
+new_file_name = video_file_name.replace("mp4","avi") # "高清无码爱情动作片.avi"
+
+final_file_name = video_file_name.replace("无码","步兵") # "高清步兵爱情动作片.mp4"
+
+print(final_file_name)
+# 案例
+content = input("请输入评论信息") # alex是一个草包
+content = content.replace("草","**") # alex是一个**包
+content = content.replace("泥马","***") # alex是一个**包
+print(content) # alex是一个**包
+char_list = ["草拟吗","逗比","二蛋","钢球"]
+
+content = input("请输入评论信息")
+for item in char_list:
+  content = content.repalce(item,"**")
+
+print(content)
+字符串切割，得到一个列表
+
+data = "武沛齐|root|wupeiqi@qq.com"
+result = data.split('|') # ["武沛齐","root","wupeiqi@qq.com"]
+print(data) # "武沛齐|root|wupeiqi@qq.com"
+print(result) # 输出 ["武沛齐","root","wupeiqi@qq.com"] 根据特定字符切开之后保存在列表中，方便以后的操作
+# 案例：判断用户名密码是否正确
+info = "武沛齐,root"   # 备注：字符串中存储了用户名和密码
+user_list = info.split(',')    # 得到一个包含了2个元素的列表 [ "武沛齐" , "root" ]
+
+# user_list[0]
+# user_list[1]
+
+user = input("请输入用户名：")
+pwd = input("请输入密码：")
+
+if user == user_list[0] and pwd == user_list[1]:
+	print("登录成功")
+else:
+	print("用户名或密码错误")
+扩展
+
+data = "武沛齐|root|wupeiqi@qq.com"
+v1 = data.split("|")   # ['武沛齐', 'root', 'wupeiqi@qq.com']
+print(v1)
+
+v2 = data.split("|", 2) # ['武沛齐', 'root|wupeiqi@qq.com']
+print(v2)
+再扩展
+
+data = "武沛齐,root,wupeiqi@qq.com"
+
+v1 = data.rsplit(',')
+print(v1) # ['武沛齐', 'root', 'wupeiqi@qq.com']
+
+v2 = data.rsplit(',',1)
+print(v2) # ['武沛齐,root', 'wupeiqi@qq.com']
+应用场景：
+
+file_path = "xxx/xxxx/xx.xx/xxx.mp4"
+
+data_list = file_path.rsplit(".",1) # ["xxx/xxxx/xx.xx/xxx","mp4"]
+data_list[0]
+data_list[1]
+字符串拼接，得到一个新的字符串
+
+data_list = ["alex","是","大烧饼"]
+v1 = "_".join(data_list) # alex_是_大烧饼
+print(v1)
+格式化字符串，得到新的字符串
+
+name = "{0}的喜欢干很多行业，例如有：{1}、{2} 等"
+data = name.format("老王","护士","嫩模")
+print(data) # 老王的喜欢干很多行业，例如有：护士、嫩模 等
+print(name) # "{0}的喜欢干很多行业，例如有：{1}、{2} 等"
+name = "{}的喜欢干很多行业，例如有：{}、{} 等"
+data = name.format("老王","护士","嫩模")
+print(data) # 老王的喜欢干很多行业，例如有：护士、嫩模 等
+name = "{name}的喜欢干很多行业，例如有：{h1}、{h2} 等"
+data = name.format(name="老王",h1="护士",h2="嫩模")
+print(data) # 老王的喜欢干很多行业，例如有：护士、嫩模 等
+字符串转换为字节类型
+
+data = "嫂子"  # unicode，字符串类型
+
+v1 = data.encode("utf-8")  # utf-8，字节类型
+v2 = data.encode("gbk")  # gbk，字节类型
+
+print(v1)  # b'\xe5\xab\x82 \xe5\xad\x90'
+print(v2)  # b'\xc9\xa9 \xd7\xd3'
+
+s1 = v1.decode("utf-8") # 嫂子
+s2 = v2.decode("gbk") # 嫂子
+print(s1)
+print(s2)
+将字符串内容居中、居左、居右展示
+
+v1 = "王老汉"
+# data = v1.center(21, "-")
+# print(data) #---------王老汉---------
+
+# data = v1.ljust(21, "-")
+# print(data) # 王老汉------------------
+
+# data = v1.rjust(21, "-")
+# print(data) # ------------------王老汉
+帮助你填充0
+
+data = "alex"
+v1 = data.zfill(10)
+print(v1) # 000000alex
+# 应用场景：处理二进制数据
+data = "101" # "00000101"
+v1 = data.zfill(8)
+print(v1) # "00000101"
